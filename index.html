@@ -1,0 +1,1367 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>LLM-as-judge drift — results</title>
+<style>
+  body { font-family: system-ui, sans-serif; max-width: 900px; margin: 2rem auto; padding: 0 1rem; }
+  h1 { font-size: 1.5rem; }
+  h2 { font-size: 1.1rem; margin-top: 2rem; border-bottom: 1px solid #ddd; padding-bottom: 0.25rem; }
+  pre { background: #f6f6f6; padding: 1rem; overflow-x: auto; font-size: 0.85rem; }
+  .missing { color: #888; font-style: italic; }
+</style>
+</head>
+<body>
+<h1>LLM-as-judge drift — POC results</h1>
+<p>Generated 2026-09-28T03:22:16.632Z. Companion to
+<code>posts/04-llm-judge-drift</code>. Any section marked "Not run yet" means
+the corresponding <code>npm run</code> step hasn't been executed against real
+API keys yet.</p>
+<section><h2>Raw judgments</h2><pre>[
+  {
+    "pairId": "pair-0001",
+    "judgeId": "openai",
+    "judgeModel": "gpt-4o-mini-2024-07-18",
+    "rubricId": "strict",
+    "forward": "B",
+    "swapped": "A"
+  },
+  {
+    "pairId": "pair-0002",
+    "judgeId": "openai",
+    "judgeModel": "gpt-4o-mini-2024-07-18",
+    "rubricId": "strict",
+    "forward": "A",
+    "swapped": "B"
+  },
+  {
+    "pairId": "pair-0003",
+    "judgeId": "openai",
+    "judgeModel": "gpt-4o-mini-2024-07-18",
+    "rubricId": "strict",
+    "forward": "B",
+    "swapped": "A"
+  },
+  {
+    "pairId": "pair-0004",
+    "judgeId": "openai",
+    "judgeModel": "gpt-4o-mini-2024-07-18",
+    "rubricId": "strict",
+    "forward": "B",
+    "swapped": "B"
+  },
+  {
+    "pairId": "pair-0005",
+    "judgeId": "openai",
+    "judgeModel": "gpt-4o-mini-2024-07-18",
+    "rubricId": "strict",
+    "forward": "B",
+    "swapped": "A"
+  },
+  {
+    "pairId": "pair-0006",
+    "judgeId": "openai",
+    "judgeModel": "gpt-4o-mini-2024-07-18",
+    "rubricId": "strict",
+    "forward": "B",
+    "swapped": "A"
+  },
+  {
+    "pairId": "pair-0007",
+    "judgeId": "openai",
+    "judgeModel": "gpt-4o-mini-2024-07-18",
+    "rubricId": "strict",
+    "forward": "A",
+    "swapped": "B"
+  },
+  {
+    "pairId": "pair-0008",
+    "judgeId": "openai",
+    "judgeModel": "gpt-4o-mini-2024-07-18",
+    "rubricId": "strict",
+    "forward": "A",
+    "swapped": "B"
+  },
+  {
+    "pairId": "pair-0009",
+    "judgeId": "openai",
+    "judgeModel": "gpt-4o-mini-2024-07-18",
+    "rubricId": "strict",
+    "forward": "A",
+    "swapped": "B"
+  },
+  {
+    "pairId": "pair-0010",
+    "judgeId": "openai",
+    "judgeModel": "gpt-4o-mini-2024-07-18",
+    "rubricId": "strict",
+    "forward": "B",
+    "swapped": "A"
+  },
+  {
+    "pairId": "pair-0011",
+    "judgeId": "openai",
+    "judgeModel": "gpt-4o-mini-2024-07-18",
+    "rubricId": "strict",
+    "forward": "B",
+    "swapped": "A"
+  },
+  {
+    "pairId": "pair-0012",
+    "judgeId": "openai",
+    "judgeModel": "gpt-4o-mini-2024-07-18",
+    "rubricId": "strict",
+    "forward": "A",
+    "swapped": "B"
+  },
+  {
+    "pairId": "pair-0013",
+    "judgeId": "openai",
+    "judgeModel": "gpt-4o-mini-2024-07-18",
+    "rubricId": "strict",
+    "forward": "A",
+    "swapped": "B"
+  },
+  {
+    "pairId": "pair-0014",
+    "judgeId": "openai",
+    "judgeModel": "gpt-4o-mini-2024-07-18",
+    "rubricId": "strict",
+    "forward": "A",
+    "swapped": "B"
+  },
+  {
+    "pairId": "pair-0015",
+    "judgeId": "openai",
+    "judgeModel": "gpt-4o-mini-2024-07-18",
+    "rubricId": "strict",
+    "forward": "B",
+    "swapped": "A"
+  },
+  {
+    "pairId": "pair-0016",
+    "judgeId": "openai",
+    "judgeModel": "gpt-4o-mini-2024-07-18",
+    "rubricId": "strict",
+    "forward": "A",
+    "swapped": "B"
+  },
+  {
+    "pairId": "pair-0017",
+    "judgeId": "openai",
+    "judgeModel": "gpt-4o-mini-2024-07-18",
+    "rubricId": "strict",
+    "forward": "A",
+    "swapped": "B"
+  },
+  {
+    "pairId": "pair-0018",
+    "judgeId": "openai",
+    "judgeModel": "gpt-4o-mini-2024-07-18",
+    "rubricId": "strict",
+    "forward": "A",
+    "swapped": "B"
+  },
+  {
+    "pairId": "pair-0019",
+    "judgeId": "openai",
+    "judgeModel": "gpt-4o-mini-2024-07-18",
+    "rubricId": "strict",
+    "forward": "A",
+    "swapped": "A"
+  },
+  {
+    "pairId": "pair-0020",
+    "judgeId": "openai",
+    "judgeModel": "gpt-4o-mini-2024-07-18",
+    "rubricId": "strict",
+    "forward": "B",
+    "swapped": "A"
+  },
+  {
+    "pairId": "pair-0021",
+    "judgeId": "openai",
+    "judgeModel": "gpt-4o-mini-2024-07-18",
+    "rubricId": "strict",
+    "forward": "A",
+    "swapped": "B"
+  },
+  {
+    "pairId": "pair-0022",
+    "judgeId": "openai",
+    "judgeModel": "gpt-4o-mini-2024-07-18",
+    "rubricId": "strict",
+    "forward": "A",
+    "swapped": "B"
+  },
+  {
+    "pairId": "pair-0023",
+    "judgeId": "openai",
+    "judgeModel": "gpt-4o-mini-2024-07-18",
+    "rubricId": "strict",
+    "forward": "tie",
+    "swapped": "B"
+  },
+  {
+    "pairId": "pair-0024",
+    "judgeId": "openai",
+    "judgeModel": "gpt-4o-mini-2024-07-18",
+    "rubricId": "strict",
+    "forward": "A",
+    "swapped": "B"
+  },
+  {
+    "pairId": "pair-0025",
+    "judgeId": "openai",
+    "judgeModel": "gpt-4o-mini-2024-07-18",
+    "rubricId": "strict",
+    "forward": "A",
+    "swapped": "B"
+  },
+  {
+    "pairId": "pair-0026",
+    "judgeId": "openai",
+    "judgeModel": "gpt-4o-mini-2024-07-18",
+    "rubricId": "strict",
+    "forward": "A",
+    "swapped": "B"
+  },
+  {
+    "pairId": "pair-0027",
+    "judgeId": "openai",
+    "judgeModel": "gpt-4o-mini-2024-07-18",
+    "rubricId": "strict",
+    "forward": "A",
+    "swapped": "A"
+  },
+  {
+    "pairId": "pair-0028",
+    "judgeId": "openai",
+    "judgeModel": "gpt-4o-mini-2024-07-18",
+    "rubricId": "strict",
+    "forward": "A",
+    "swapped": "B"
+  },
+  {
+    "pairId": "pair-0029",
+    "judgeId": "openai",
+    "judgeModel": "gpt-4o-mini-2024-07-18",
+    "rubricId": "strict",
+    "forward": "B",
+    "swapped": "A"
+  },
+  {
+    "pairId": "pair-0030",
+    "judgeId": "openai",
+    "judgeModel": "gpt-4o-mini-2024-07-18",
+    "rubricId": "strict",
+    "forward": "A",
+    "swapped": "B"
+  },
+  {
+    "pairId": "pair-0031",
+    "judgeId": "openai",
+    "judgeModel": "gpt-4o-mini-2024-07-18",
+    "rubricId": "strict",
+    "forward": "A",
+    "swapped": "B"
+  },
+  {
+    "pairId": "pair-0032",
+    "judgeId": "openai",
+    "judgeModel": "gpt-4o-mini-2024-07-18",
+    "rubricId": "strict",
+    "forward": "A",
+    "swapped": "B"
+  },
+  {
+    "pairId": "pair-0033",
+    "judgeId": "openai",
+    "judgeModel": "gpt-4o-mini-2024-07-18",
+    "rubricId": "strict",
+    "forward": "A",
+    "swapped": "B"
+  },
+  {
+    "pairId": "pair-0034",
+    "judgeId": "openai",
+    "judgeModel": "gpt-4o-mini-2024-07-18",
+    "rubricId": "strict",
+    "forward": "A",
+    "swapped": "B"
+  },
+  {
+    "pairId": "pair-0035",
+    "judgeId": "openai",
+    "judgeModel": "gpt-4o-mini-2024-07-18",
+    "rubricId": "strict",
+    "forward": "B",
+    "swapped": "B"
+  },
+  {
+    "pairId": "pair-0036",
+    "judgeId": "openai",
+    "judgeModel": "gpt-4o-mini-2024-07-18",
+    "rubricId": "strict",
+    "forward": "B",
+    "swapped": "A"
+  },
+  {
+    "pairId": "pair-0037",
+    "judgeId": "openai",
+    "judgeModel": "gpt-4o-mini-2024-07-18",
+    "rubricId": "strict",
+    "forward": "A",
+    "swapped": "B"
+  },
+  {
+    "pairId": "pair-0038",
+    "judgeId": "openai",
+    "judgeModel": "gpt-4o-mini-2024-07-18",
+    "rubricId": "strict",
+    "forward": "A",
+    "swapped": "B"
+  },
+  {
+    "pairId": "pair-0039",
+    "judgeId": "openai",
+    "judgeModel": "gpt-4o-mini-2024-07-18",
+    "rubricId": "strict",
+    "forward": "A",
+    "swapped": "B"
+  },
+  {
+    "pairId": "pair-0040",
+    "judgeId": "openai",
+    "judgeModel": "gpt-4o-mini-2024-07-18",
+    "rubricId": "strict",
+    "forward": "A",
+    "swapped": "B"
+  },
+  {
+    "pairId": "pair-0001",
+    "judgeId": "openai",
+    "judgeModel": "gpt-4o-mini-2024-07-18",
+    "rubricId": "lenient",
+    "forward": "B",
+    "swapped": "A"
+  },
+  {
+    "pairId": "pair-0002",
+    "judgeId": "openai",
+    "judgeModel": "gpt-4o-mini-2024-07-18",
+    "rubricId": "lenient",
+    "forward": "A",
+    "swapped": "B"
+  },
+  {
+    "pairId": "pair-0003",
+    "judgeId": "openai",
+    "judgeModel": "gpt-4o-mini-2024-07-18",
+    "rubricId": "lenient",
+    "forward": "B",
+    "swapped": "A"
+  },
+  {
+    "pairId": "pair-0004",
+    "judgeId": "openai",
+    "judgeModel": "gpt-4o-mini-2024-07-18",
+    "rubricId": "lenient",
+    "forward": "B",
+    "swapped": "A"
+  },
+  {
+    "pairId": "pair-0005",
+    "judgeId": "openai",
+    "judgeModel": "gpt-4o-mini-2024-07-18",
+    "rubricId": "lenient",
+    "forward": "B",
+    "swapped": "A"
+  },
+  {
+    "pairId": "pair-0006",
+    "judgeId": "openai",
+    "judgeModel": "gpt-4o-mini-2024-07-18",
+    "rubricId": "lenient",
+    "forward": "A",
+    "swapped": "B"
+  },
+  {
+    "pairId": "pair-0007",
+    "judgeId": "openai",
+    "judgeModel": "gpt-4o-mini-2024-07-18",
+    "rubricId": "lenient",
+    "forward": "A",
+    "swapped": "B"
+  },
+  {
+    "pairId": "pair-0008",
+    "judgeId": "openai",
+    "judgeModel": "gpt-4o-mini-2024-07-18",
+    "rubricId": "lenient",
+    "forward": "A",
+    "swapped": "B"
+  },
+  {
+    "pairId": "pair-0009",
+    "judgeId": "openai",
+    "judgeModel": "gpt-4o-mini-2024-07-18",
+    "rubricId": "lenient",
+    "forward": "A",
+    "swapped": "B"
+  },
+  {
+    "pairId": "pair-0010",
+    "judgeId": "openai",
+    "judgeModel": "gpt-4o-mini-2024-07-18",
+    "rubricId": "lenient",
+    "forward": "B",
+    "swapped": "A"
+  },
+  {
+    "pairId": "pair-0011",
+    "judgeId": "openai",
+    "judgeModel": "gpt-4o-mini-2024-07-18",
+    "rubricId": "lenient",
+    "forward": "B",
+    "swapped": "A"
+  },
+  {
+    "pairId": "pair-0012",
+    "judgeId": "openai",
+    "judgeModel": "gpt-4o-mini-2024-07-18",
+    "rubricId": "lenient",
+    "forward": "B",
+    "swapped": "B"
+  },
+  {
+    "pairId": "pair-0013",
+    "judgeId": "openai",
+    "judgeModel": "gpt-4o-mini-2024-07-18",
+    "rubricId": "lenient",
+    "forward": "A",
+    "swapped": "B"
+  },
+  {
+    "pairId": "pair-0014",
+    "judgeId": "openai",
+    "judgeModel": "gpt-4o-mini-2024-07-18",
+    "rubricId": "lenient",
+    "forward": "A",
+    "swapped": "B"
+  },
+  {
+    "pairId": "pair-0015",
+    "judgeId": "openai",
+    "judgeModel": "gpt-4o-mini-2024-07-18",
+    "rubricId": "lenient",
+    "forward": "A",
+    "swapped": "A"
+  },
+  {
+    "pairId": "pair-0016",
+    "judgeId": "openai",
+    "judgeModel": "gpt-4o-mini-2024-07-18",
+    "rubricId": "lenient",
+    "forward": "A",
+    "swapped": "B"
+  },
+  {
+    "pairId": "pair-0017",
+    "judgeId": "openai",
+    "judgeModel": "gpt-4o-mini-2024-07-18",
+    "rubricId": "lenient",
+    "forward": "A",
+    "swapped": "B"
+  },
+  {
+    "pairId": "pair-0018",
+    "judgeId": "openai",
+    "judgeModel": "gpt-4o-mini-2024-07-18",
+    "rubricId": "lenient",
+    "forward": "A",
+    "swapped": "B"
+  },
+  {
+    "pairId": "pair-0019",
+    "judgeId": "openai",
+    "judgeModel": "gpt-4o-mini-2024-07-18",
+    "rubricId": "lenient",
+    "forward": "A",
+    "swapped": "tie"
+  },
+  {
+    "pairId": "pair-0020",
+    "judgeId": "openai",
+    "judgeModel": "gpt-4o-mini-2024-07-18",
+    "rubricId": "lenient",
+    "forward": "B",
+    "swapped": "A"
+  },
+  {
+    "pairId": "pair-0021",
+    "judgeId": "openai",
+    "judgeModel": "gpt-4o-mini-2024-07-18",
+    "rubricId": "lenient",
+    "forward": "A",
+    "swapped": "B"
+  },
+  {
+    "pairId": "pair-0022",
+    "judgeId": "openai",
+    "judgeModel": "gpt-4o-mini-2024-07-18",
+    "rubricId": "lenient",
+    "forward": "A",
+    "swapped": "B"
+  },
+  {
+    "pairId": "pair-0023",
+    "judgeId": "openai",
+    "judgeModel": "gpt-4o-mini-2024-07-18",
+    "rubricId": "lenient",
+    "forward": "B",
+    "swapped": "B"
+  },
+  {
+    "pairId": "pair-0024",
+    "judgeId": "openai",
+    "judgeModel": "gpt-4o-mini-2024-07-18",
+    "rubricId": "lenient",
+    "forward": "A",
+    "swapped": "B"
+  },
+  {
+    "pairId": "pair-0025",
+    "judgeId": "openai",
+    "judgeModel": "gpt-4o-mini-2024-07-18",
+    "rubricId": "lenient",
+    "forward": "A",
+    "swapped": "B"
+  },
+  {
+    "pairId": "pair-0026",
+    "judgeId": "openai",
+    "judgeModel": "gpt-4o-mini-2024-07-18",
+    "rubricId": "lenient",
+    "forward": "A",
+    "swapped": "B"
+  },
+  {
+    "pairId": "pair-0027",
+    "judgeId": "openai",
+    "judgeModel": "gpt-4o-mini-2024-07-18",
+    "rubricId": "lenient",
+    "forward": "A",
+    "swapped": "B"
+  },
+  {
+    "pairId": "pair-0028",
+    "judgeId": "openai",
+    "judgeModel": "gpt-4o-mini-2024-07-18",
+    "rubricId": "lenient",
+    "forward": "A",
+    "swapped": "B"
+  },
+  {
+    "pairId": "pair-0029",
+    "judgeId": "openai",
+    "judgeModel": "gpt-4o-mini-2024-07-18",
+    "rubricId": "lenient",
+    "forward": "A",
+    "swapped": "B"
+  },
+  {
+    "pairId": "pair-0030",
+    "judgeId": "openai",
+    "judgeModel": "gpt-4o-mini-2024-07-18",
+    "rubricId": "lenient",
+    "forward": "A",
+    "swapped": "B"
+  },
+  {
+    "pairId": "pair-0031",
+    "judgeId": "openai",
+    "judgeModel": "gpt-4o-mini-2024-07-18",
+    "rubricId": "lenient",
+    "forward": "A",
+    "swapped": "B"
+  },
+  {
+    "pairId": "pair-0032",
+    "judgeId": "openai",
+    "judgeModel": "gpt-4o-mini-2024-07-18",
+    "rubricId": "lenient",
+    "forward": "A",
+    "swapped": "B"
+  },
+  {
+    "pairId": "pair-0033",
+    "judgeId": "openai",
+    "judgeModel": "gpt-4o-mini-2024-07-18",
+    "rubricId": "lenient",
+    "forward": "A",
+    "swapped": "B"
+  },
+  {
+    "pairId": "pair-0034",
+    "judgeId": "openai",
+    "judgeModel": "gpt-4o-mini-2024-07-18",
+    "rubricId": "lenient",
+    "forward": "A",
+    "swapped": "B"
+  },
+  {
+    "pairId": "pair-0035",
+    "judgeId": "openai",
+    "judgeModel": "gpt-4o-mini-2024-07-18",
+    "rubricId": "lenient",
+    "forward": "B",
+    "swapped": "B"
+  },
+  {
+    "pairId": "pair-0036",
+    "judgeId": "openai",
+    "judgeModel": "gpt-4o-mini-2024-07-18",
+    "rubricId": "lenient",
+    "forward": "B",
+    "swapped": "B"
+  },
+  {
+    "pairId": "pair-0037",
+    "judgeId": "openai",
+    "judgeModel": "gpt-4o-mini-2024-07-18",
+    "rubricId": "lenient",
+    "forward": "A",
+    "swapped": "B"
+  },
+  {
+    "pairId": "pair-0038",
+    "judgeId": "openai",
+    "judgeModel": "gpt-4o-mini-2024-07-18",
+    "rubricId": "lenient",
+    "forward": "A",
+    "swapped": "B"
+  },
+  {
+    "pairId": "pair-0039",
+    "judgeId": "openai",
+    "judgeModel": "gpt-4o-mini-2024-07-18",
+    "rubricId": "lenient",
+    "forward": "A",
+    "swapped": "B"
+  },
+  {
+    "pairId": "pair-0040",
+    "judgeId": "openai",
+    "judgeModel": "gpt-4o-mini-2024-07-18",
+    "rubricId": "lenient",
+    "forward": "A",
+    "swapped": "B"
+  },
+  {
+    "pairId": "pair-0001",
+    "judgeId": "anthropic",
+    "judgeModel": "claude-haiku-4-5-20251001",
+    "rubricId": "strict",
+    "forward": "B",
+    "swapped": "A"
+  },
+  {
+    "pairId": "pair-0002",
+    "judgeId": "anthropic",
+    "judgeModel": "claude-haiku-4-5-20251001",
+    "rubricId": "strict",
+    "forward": "tie",
+    "swapped": "B"
+  },
+  {
+    "pairId": "pair-0003",
+    "judgeId": "anthropic",
+    "judgeModel": "claude-haiku-4-5-20251001",
+    "rubricId": "strict",
+    "forward": "tie",
+    "swapped": "A"
+  },
+  {
+    "pairId": "pair-0004",
+    "judgeId": "anthropic",
+    "judgeModel": "claude-haiku-4-5-20251001",
+    "rubricId": "strict",
+    "forward": null,
+    "swapped": "B"
+  },
+  {
+    "pairId": "pair-0005",
+    "judgeId": "anthropic",
+    "judgeModel": "claude-haiku-4-5-20251001",
+    "rubricId": "strict",
+    "forward": "B",
+    "swapped": "A"
+  },
+  {
+    "pairId": "pair-0006",
+    "judgeId": "anthropic",
+    "judgeModel": "claude-haiku-4-5-20251001",
+    "rubricId": "strict",
+    "forward": "A",
+    "swapped": "B"
+  },
+  {
+    "pairId": "pair-0007",
+    "judgeId": "anthropic",
+    "judgeModel": "claude-haiku-4-5-20251001",
+    "rubricId": "strict",
+    "forward": "A",
+    "swapped": "B"
+  },
+  {
+    "pairId": "pair-0008",
+    "judgeId": "anthropic",
+    "judgeModel": "claude-haiku-4-5-20251001",
+    "rubricId": "strict",
+    "forward": "A",
+    "swapped": "B"
+  },
+  {
+    "pairId": "pair-0009",
+    "judgeId": "anthropic",
+    "judgeModel": "claude-haiku-4-5-20251001",
+    "rubricId": "strict",
+    "forward": "A",
+    "swapped": "B"
+  },
+  {
+    "pairId": "pair-0010",
+    "judgeId": "anthropic",
+    "judgeModel": "claude-haiku-4-5-20251001",
+    "rubricId": "strict",
+    "forward": null,
+    "swapped": null
+  },
+  {
+    "pairId": "pair-0011",
+    "judgeId": "anthropic",
+    "judgeModel": "claude-haiku-4-5-20251001",
+    "rubricId": "strict",
+    "forward": "B",
+    "swapped": "B"
+  },
+  {
+    "pairId": "pair-0012",
+    "judgeId": "anthropic",
+    "judgeModel": "claude-haiku-4-5-20251001",
+    "rubricId": "strict",
+    "forward": "A",
+    "swapped": "B"
+  },
+  {
+    "pairId": "pair-0013",
+    "judgeId": "anthropic",
+    "judgeModel": "claude-haiku-4-5-20251001",
+    "rubricId": "strict",
+    "forward": "A",
+    "swapped": "B"
+  },
+  {
+    "pairId": "pair-0014",
+    "judgeId": "anthropic",
+    "judgeModel": "claude-haiku-4-5-20251001",
+    "rubricId": "strict",
+    "forward": "A",
+    "swapped": "B"
+  },
+  {
+    "pairId": "pair-0015",
+    "judgeId": "anthropic",
+    "judgeModel": "claude-haiku-4-5-20251001",
+    "rubricId": "strict",
+    "forward": null,
+    "swapped": "A"
+  },
+  {
+    "pairId": "pair-0016",
+    "judgeId": "anthropic",
+    "judgeModel": "claude-haiku-4-5-20251001",
+    "rubricId": "strict",
+    "forward": "A",
+    "swapped": "B"
+  },
+  {
+    "pairId": "pair-0017",
+    "judgeId": "anthropic",
+    "judgeModel": "claude-haiku-4-5-20251001",
+    "rubricId": "strict",
+    "forward": "A",
+    "swapped": "B"
+  },
+  {
+    "pairId": "pair-0018",
+    "judgeId": "anthropic",
+    "judgeModel": "claude-haiku-4-5-20251001",
+    "rubricId": "strict",
+    "forward": "A",
+    "swapped": "B"
+  },
+  {
+    "pairId": "pair-0019",
+    "judgeId": "anthropic",
+    "judgeModel": "claude-haiku-4-5-20251001",
+    "rubricId": "strict",
+    "forward": "A",
+    "swapped": null
+  },
+  {
+    "pairId": "pair-0020",
+    "judgeId": "anthropic",
+    "judgeModel": "claude-haiku-4-5-20251001",
+    "rubricId": "strict",
+    "forward": "B",
+    "swapped": "A"
+  },
+  {
+    "pairId": "pair-0021",
+    "judgeId": "anthropic",
+    "judgeModel": "claude-haiku-4-5-20251001",
+    "rubricId": "strict",
+    "forward": "A",
+    "swapped": "B"
+  },
+  {
+    "pairId": "pair-0022",
+    "judgeId": "anthropic",
+    "judgeModel": "claude-haiku-4-5-20251001",
+    "rubricId": "strict",
+    "forward": "A",
+    "swapped": "B"
+  },
+  {
+    "pairId": "pair-0023",
+    "judgeId": "anthropic",
+    "judgeModel": "claude-haiku-4-5-20251001",
+    "rubricId": "strict",
+    "forward": "tie",
+    "swapped": "B"
+  },
+  {
+    "pairId": "pair-0024",
+    "judgeId": "anthropic",
+    "judgeModel": "claude-haiku-4-5-20251001",
+    "rubricId": "strict",
+    "forward": "B",
+    "swapped": "B"
+  },
+  {
+    "pairId": "pair-0025",
+    "judgeId": "anthropic",
+    "judgeModel": "claude-haiku-4-5-20251001",
+    "rubricId": "strict",
+    "forward": null,
+    "swapped": null
+  },
+  {
+    "pairId": "pair-0026",
+    "judgeId": "anthropic",
+    "judgeModel": "claude-haiku-4-5-20251001",
+    "rubricId": "strict",
+    "forward": "A",
+    "swapped": "B"
+  },
+  {
+    "pairId": "pair-0027",
+    "judgeId": "anthropic",
+    "judgeModel": "claude-haiku-4-5-20251001",
+    "rubricId": "strict",
+    "forward": "tie",
+    "swapped": "B"
+  },
+  {
+    "pairId": "pair-0028",
+    "judgeId": "anthropic",
+    "judgeModel": "claude-haiku-4-5-20251001",
+    "rubricId": "strict",
+    "forward": "A",
+    "swapped": "B"
+  },
+  {
+    "pairId": "pair-0029",
+    "judgeId": "anthropic",
+    "judgeModel": "claude-haiku-4-5-20251001",
+    "rubricId": "strict",
+    "forward": null,
+    "swapped": "B"
+  },
+  {
+    "pairId": "pair-0030",
+    "judgeId": "anthropic",
+    "judgeModel": "claude-haiku-4-5-20251001",
+    "rubricId": "strict",
+    "forward": null,
+    "swapped": null
+  },
+  {
+    "pairId": "pair-0031",
+    "judgeId": "anthropic",
+    "judgeModel": "claude-haiku-4-5-20251001",
+    "rubricId": "strict",
+    "forward": null,
+    "swapped": "A"
+  },
+  {
+    "pairId": "pair-0032",
+    "judgeId": "anthropic",
+    "judgeModel": "claude-haiku-4-5-20251001",
+    "rubricId": "strict",
+    "forward": "B",
+    "swapped": "tie"
+  },
+  {
+    "pairId": "pair-0033",
+    "judgeId": "anthropic",
+    "judgeModel": "claude-haiku-4-5-20251001",
+    "rubricId": "strict",
+    "forward": "A",
+    "swapped": "B"
+  },
+  {
+    "pairId": "pair-0034",
+    "judgeId": "anthropic",
+    "judgeModel": "claude-haiku-4-5-20251001",
+    "rubricId": "strict",
+    "forward": "A",
+    "swapped": "B"
+  },
+  {
+    "pairId": "pair-0035",
+    "judgeId": "anthropic",
+    "judgeModel": "claude-haiku-4-5-20251001",
+    "rubricId": "strict",
+    "forward": null,
+    "swapped": null
+  },
+  {
+    "pairId": "pair-0036",
+    "judgeId": "anthropic",
+    "judgeModel": "claude-haiku-4-5-20251001",
+    "rubricId": "strict",
+    "forward": null,
+    "swapped": null
+  },
+  {
+    "pairId": "pair-0037",
+    "judgeId": "anthropic",
+    "judgeModel": "claude-haiku-4-5-20251001",
+    "rubricId": "strict",
+    "forward": "A",
+    "swapped": "B"
+  },
+  {
+    "pairId": "pair-0038",
+    "judgeId": "anthropic",
+    "judgeModel": "claude-haiku-4-5-20251001",
+    "rubricId": "strict",
+    "forward": "A",
+    "swapped": "B"
+  },
+  {
+    "pairId": "pair-0039",
+    "judgeId": "anthropic",
+    "judgeModel": "claude-haiku-4-5-20251001",
+    "rubricId": "strict",
+    "forward": "A",
+    "swapped": "B"
+  },
+  {
+    "pairId": "pair-0040",
+    "judgeId": "anthropic",
+    "judgeModel": "claude-haiku-4-5-20251001",
+    "rubricId": "strict",
+    "forward": "A",
+    "swapped": "B"
+  },
+  {
+    "pairId": "pair-0001",
+    "judgeId": "anthropic",
+    "judgeModel": "claude-haiku-4-5-20251001",
+    "rubricId": "lenient",
+    "forward": "B",
+    "swapped": "A"
+  },
+  {
+    "pairId": "pair-0002",
+    "judgeId": "anthropic",
+    "judgeModel": "claude-haiku-4-5-20251001",
+    "rubricId": "lenient",
+    "forward": "A",
+    "swapped": "B"
+  },
+  {
+    "pairId": "pair-0003",
+    "judgeId": "anthropic",
+    "judgeModel": "claude-haiku-4-5-20251001",
+    "rubricId": "lenient",
+    "forward": "B",
+    "swapped": "A"
+  },
+  {
+    "pairId": "pair-0004",
+    "judgeId": "anthropic",
+    "judgeModel": "claude-haiku-4-5-20251001",
+    "rubricId": "lenient",
+    "forward": "B",
+    "swapped": "A"
+  },
+  {
+    "pairId": "pair-0005",
+    "judgeId": "anthropic",
+    "judgeModel": "claude-haiku-4-5-20251001",
+    "rubricId": "lenient",
+    "forward": "B",
+    "swapped": "B"
+  },
+  {
+    "pairId": "pair-0006",
+    "judgeId": "anthropic",
+    "judgeModel": "claude-haiku-4-5-20251001",
+    "rubricId": "lenient",
+    "forward": "A",
+    "swapped": "B"
+  },
+  {
+    "pairId": "pair-0007",
+    "judgeId": "anthropic",
+    "judgeModel": "claude-haiku-4-5-20251001",
+    "rubricId": "lenient",
+    "forward": "A",
+    "swapped": "B"
+  },
+  {
+    "pairId": "pair-0008",
+    "judgeId": "anthropic",
+    "judgeModel": "claude-haiku-4-5-20251001",
+    "rubricId": "lenient",
+    "forward": "A",
+    "swapped": "B"
+  },
+  {
+    "pairId": "pair-0009",
+    "judgeId": "anthropic",
+    "judgeModel": "claude-haiku-4-5-20251001",
+    "rubricId": "lenient",
+    "forward": "A",
+    "swapped": "B"
+  },
+  {
+    "pairId": "pair-0010",
+    "judgeId": "anthropic",
+    "judgeModel": "claude-haiku-4-5-20251001",
+    "rubricId": "lenient",
+    "forward": "B",
+    "swapped": "A"
+  },
+  {
+    "pairId": "pair-0011",
+    "judgeId": "anthropic",
+    "judgeModel": "claude-haiku-4-5-20251001",
+    "rubricId": "lenient",
+    "forward": "B",
+    "swapped": "A"
+  },
+  {
+    "pairId": "pair-0012",
+    "judgeId": "anthropic",
+    "judgeModel": "claude-haiku-4-5-20251001",
+    "rubricId": "lenient",
+    "forward": "A",
+    "swapped": "B"
+  },
+  {
+    "pairId": "pair-0013",
+    "judgeId": "anthropic",
+    "judgeModel": "claude-haiku-4-5-20251001",
+    "rubricId": "lenient",
+    "forward": "A",
+    "swapped": "B"
+  },
+  {
+    "pairId": "pair-0014",
+    "judgeId": "anthropic",
+    "judgeModel": "claude-haiku-4-5-20251001",
+    "rubricId": "lenient",
+    "forward": "A",
+    "swapped": "B"
+  },
+  {
+    "pairId": "pair-0015",
+    "judgeId": "anthropic",
+    "judgeModel": "claude-haiku-4-5-20251001",
+    "rubricId": "lenient",
+    "forward": "A",
+    "swapped": "B"
+  },
+  {
+    "pairId": "pair-0016",
+    "judgeId": "anthropic",
+    "judgeModel": "claude-haiku-4-5-20251001",
+    "rubricId": "lenient",
+    "forward": "A",
+    "swapped": "B"
+  },
+  {
+    "pairId": "pair-0017",
+    "judgeId": "anthropic",
+    "judgeModel": "claude-haiku-4-5-20251001",
+    "rubricId": "lenient",
+    "forward": "A",
+    "swapped": "B"
+  },
+  {
+    "pairId": "pair-0018",
+    "judgeId": "anthropic",
+    "judgeModel": "claude-haiku-4-5-20251001",
+    "rubricId": "lenient",
+    "forward": "A",
+    "swapped": "B"
+  },
+  {
+    "pairId": "pair-0019",
+    "judgeId": "anthropic",
+    "judgeModel": "claude-haiku-4-5-20251001",
+    "rubricId": "lenient",
+    "forward": "A",
+    "swapped": null
+  },
+  {
+    "pairId": "pair-0020",
+    "judgeId": "anthropic",
+    "judgeModel": "claude-haiku-4-5-20251001",
+    "rubricId": "lenient",
+    "forward": "B",
+    "swapped": "A"
+  },
+  {
+    "pairId": "pair-0021",
+    "judgeId": "anthropic",
+    "judgeModel": "claude-haiku-4-5-20251001",
+    "rubricId": "lenient",
+    "forward": "A",
+    "swapped": "B"
+  },
+  {
+    "pairId": "pair-0022",
+    "judgeId": "anthropic",
+    "judgeModel": "claude-haiku-4-5-20251001",
+    "rubricId": "lenient",
+    "forward": "A",
+    "swapped": "B"
+  },
+  {
+    "pairId": "pair-0023",
+    "judgeId": "anthropic",
+    "judgeModel": "claude-haiku-4-5-20251001",
+    "rubricId": "lenient",
+    "forward": "A",
+    "swapped": "B"
+  },
+  {
+    "pairId": "pair-0024",
+    "judgeId": "anthropic",
+    "judgeModel": "claude-haiku-4-5-20251001",
+    "rubricId": "lenient",
+    "forward": "A",
+    "swapped": "B"
+  },
+  {
+    "pairId": "pair-0025",
+    "judgeId": "anthropic",
+    "judgeModel": "claude-haiku-4-5-20251001",
+    "rubricId": "lenient",
+    "forward": "A",
+    "swapped": "B"
+  },
+  {
+    "pairId": "pair-0026",
+    "judgeId": "anthropic",
+    "judgeModel": "claude-haiku-4-5-20251001",
+    "rubricId": "lenient",
+    "forward": "A",
+    "swapped": "B"
+  },
+  {
+    "pairId": "pair-0027",
+    "judgeId": "anthropic",
+    "judgeModel": "claude-haiku-4-5-20251001",
+    "rubricId": "lenient",
+    "forward": "A",
+    "swapped": "B"
+  },
+  {
+    "pairId": "pair-0028",
+    "judgeId": "anthropic",
+    "judgeModel": "claude-haiku-4-5-20251001",
+    "rubricId": "lenient",
+    "forward": "A",
+    "swapped": "B"
+  },
+  {
+    "pairId": "pair-0029",
+    "judgeId": "anthropic",
+    "judgeModel": "claude-haiku-4-5-20251001",
+    "rubricId": "lenient",
+    "forward": "A",
+    "swapped": "B"
+  },
+  {
+    "pairId": "pair-0030",
+    "judgeId": "anthropic",
+    "judgeModel": "claude-haiku-4-5-20251001",
+    "rubricId": "lenient",
+    "forward": "A",
+    "swapped": "B"
+  },
+  {
+    "pairId": "pair-0031",
+    "judgeId": "anthropic",
+    "judgeModel": "claude-haiku-4-5-20251001",
+    "rubricId": "lenient",
+    "forward": "A",
+    "swapped": "B"
+  },
+  {
+    "pairId": "pair-0032",
+    "judgeId": "anthropic",
+    "judgeModel": "claude-haiku-4-5-20251001",
+    "rubricId": "lenient",
+    "forward": "B",
+    "swapped": "A"
+  },
+  {
+    "pairId": "pair-0033",
+    "judgeId": "anthropic",
+    "judgeModel": "claude-haiku-4-5-20251001",
+    "rubricId": "lenient",
+    "forward": "A",
+    "swapped": "B"
+  },
+  {
+    "pairId": "pair-0034",
+    "judgeId": "anthropic",
+    "judgeModel": "claude-haiku-4-5-20251001",
+    "rubricId": "lenient",
+    "forward": "A",
+    "swapped": "B"
+  },
+  {
+    "pairId": "pair-0035",
+    "judgeId": "anthropic",
+    "judgeModel": "claude-haiku-4-5-20251001",
+    "rubricId": "lenient",
+    "forward": "B",
+    "swapped": "A"
+  },
+  {
+    "pairId": "pair-0036",
+    "judgeId": "anthropic",
+    "judgeModel": "claude-haiku-4-5-20251001",
+    "rubricId": "lenient",
+    "forward": "B",
+    "swapped": "A"
+  },
+  {
+    "pairId": "pair-0038",
+    "judgeId": "anthropic",
+    "judgeModel": "claude-haiku-4-5-20251001",
+    "rubricId": "lenient",
+    "forward": "A",
+    "swapped": "B"
+  },
+  {
+    "pairId": "pair-0039",
+    "judgeId": "anthropic",
+    "judgeModel": "claude-haiku-4-5-20251001",
+    "rubricId": "lenient",
+    "forward": "A",
+    "swapped": "B"
+  },
+  {
+    "pairId": "pair-0040",
+    "judgeId": "anthropic",
+    "judgeModel": "claude-haiku-4-5-20251001",
+    "rubricId": "lenient",
+    "forward": "A",
+    "swapped": "B"
+  }
+]</pre></section>
+<section><h2>Inter-judge agreement (Cohen's kappa, flip rate)</h2><pre>{
+  "strict": {
+    "flipRates": {
+      "openai": 0.10256410256410256,
+      "anthropic": 0.08
+    },
+    "parseFailureRates": {
+      "openai": {
+        "forwardParseFailureRate": 0
+      },
+      "anthropic": {
+        "forwardParseFailureRate": 0.225
+      }
+    },
+    "kappaMatrix": {
+      "openai_vs_anthropic": {
+        "n": 31,
+        "parseFailures": 9,
+        "rawAgreement": 0.8064516129032258,
+        "cohensKappa": 0.5539568345323741
+      }
+    }
+  },
+  "lenient": {
+    "flipRates": {
+      "openai": 0.1282051282051282,
+      "anthropic": 0.02631578947368421
+    },
+    "parseFailureRates": {
+      "openai": {
+        "forwardParseFailureRate": 0
+      },
+      "anthropic": {
+        "forwardParseFailureRate": 0
+      }
+    },
+    "kappaMatrix": {
+      "openai_vs_anthropic": {
+        "n": 39,
+        "parseFailures": 0,
+        "rawAgreement": 0.9230769230769231,
+        "cohensKappa": 0.8046744574290485
+      }
+    }
+  }
+}</pre></section>
+<section><h2>Calibration vs. human gold set</h2><pre>{
+  "openai__strict": {
+    "n": 12,
+    "parseFailures": 0,
+    "rawAgreementVsHuman": 0.8333333333333334,
+    "cohensKappaVsHuman": 0.6962025316455697
+  },
+  "openai__lenient": {
+    "n": 12,
+    "parseFailures": 0,
+    "rawAgreementVsHuman": 0.8333333333333334,
+    "cohensKappaVsHuman": 0.6962025316455697
+  },
+  "anthropic__strict": {
+    "n": 10,
+    "parseFailures": 2,
+    "rawAgreementVsHuman": 0.9,
+    "cohensKappaVsHuman": 0.8305084745762712
+  },
+  "anthropic__lenient": {
+    "n": 12,
+    "parseFailures": 0,
+    "rawAgreementVsHuman": 0.9166666666666666,
+    "cohensKappaVsHuman": 0.846153846153846
+  }
+}</pre></section>
+</body>
+</html>
